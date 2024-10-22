@@ -8,7 +8,7 @@ type Props = {};
 
 export default function Sidebar({}: Props) {
   return (
-    <div className="relative min-w-[80px] border-r px-3 pb-10 pt-24 flex flex-col justify-center">
+    <div className="relative min-w-[60px] p1-8 pb-10 pt-24 flex flex-col justify-center">
       <Nav
         isCollapsed={true}
         links={[

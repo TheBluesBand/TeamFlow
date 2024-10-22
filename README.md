@@ -1,5 +1,3 @@
-![image](https://github.com/sachidumaleesha/shadcn-dashboard/assets/45502921/e14d0957-4216-4754-961c-c9ab1e0b0cbd)
-
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
@@ -45,7 +43,7 @@ The project structure is organized as follows:
 │   ├── components/
 │   │   └── ...
 │   └── lib/
-│       └── ...
+│       └── utils.ts
 ├── .eslintrc.json
 ├── .gitignore
 ├── components.json
@@ -63,14 +61,14 @@ The project structure is organized as follows:
 - **public/**:
 - **src/app/**: Contains all web pages, globalcss and the favicon
 - **src/components/**: Contains all custom components and shadcn components
-- **src/lib/**: ???
-- **.eslintrc.json**: ???
+- **src/lib/utils.ts**: Combines and merges CSS class names using clsx and tailwind-merge
+- **.eslintrc.json**: Nextjs configuration file for ESLint
 - **.gitignore**: Specifies files and directories to be ignored by Git.
-- **components.json**:
+- **components.json**: Used to configure how we obtain shadcn components
 - **next.config.js**: All of our top level nextjs configurations
 - **package-lock.json**: Contains the detailed dependencies and peer dependencies that are downloaded to the project.
 - **package.json**: Contains the project metadata and dependencies.
-- **postcss.config.js**:
+- **postcss.config.js**: Config file for PostCSS
 - **README.md**: README for the project containing all baseline information on the repository
 - **tailwind.config.js**: Our tailwind configuration file
 - **tsconfig.json**: Our typescript configuration file

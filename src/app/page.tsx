@@ -8,25 +8,25 @@ const cardData: CardProps[] = [
   {
     label: "Total lines today",
     amount: "2,145",
-    discription: "+20.1% from last month",
+    description: "+20.1% from last month",
     icon: ArrowUpRight,
   },
   {
     label: "Pull requests open",
     amount: "20",
-    discription: "+2.3",
+    description: "+2.3",
     icon: ArrowUpRight,
   },
   {
     label: "Bugs found",
     amount: "15",
-    discription: "-15% down from last month",
+    description: "-15% down from last month",
     icon: ArrowUpRight,
   },
   {
     label: "Time to first review",
     amount: "4.9 hours",
-    discription: "+201 from last month",
+    description: "+201 from last month",
     icon: ArrowUpRight,
   },
 ];
@@ -69,7 +69,7 @@ export default function Home() {
             <Card
               key={index}
               amount={data.amount}
-              discription={data.discription}
+              description={data.description}
               icon={data.icon}
               label={data.label}
             />
@@ -96,7 +96,7 @@ export default function Home() {
             <Card
               key={index}
               amount={data.amount}
-              discription={data.discription}
+              description={data.description}
               icon={data.icon}
               label={data.label}
             />
