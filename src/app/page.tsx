@@ -3,6 +3,7 @@ import PageTitle from "@/components/PageTitle";
 import Card, { CardContent, CardProps } from "@/components/card";
 import { ArrowUpRight } from "lucide-react";
 import SalesCard, { SalesProps } from "@/components/SalesCard";
+import AreaChart from "@/components/AreaChart";
 
 const cardData: CardProps[] = [
   {
@@ -109,17 +110,9 @@ export default function Home() {
         </CardContent>
         <CardContent className="flex justify-between gap-4">
           <section>
-            <p>Team</p>
-            <p className="text-sm text-gray-400">5 Team Memebers</p>
+            <p>Code Frequency</p>
           </section>
-          {userSalesData.map((data, index) => (
-            <SalesCard
-              key={index}
-              email={data.email}
-              name={data.name}
-              salesAmount={data.salesAmount}
-            />
-          ))}
+          <AreaChart />
         </CardContent>
       </section>
     </div>
