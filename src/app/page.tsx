@@ -63,7 +63,7 @@ export default function Home() {
   return (
     <div className="flex flex-col gap-5 w-full">
       <PageTitle title="Dashboard" />
-      <div className="flex w-full justify-between gap-4 gap-x-8 transition-all">
+      <div className="flex flex-col w-full gap-4 gap-x-8 transition-all sm:flex-row sm:justify-between">
         <section className="grid w-full grid-cols-1 gap-4 gap-x-8 transition-all sm:grid-cols-2 xl:grid-cols-2">
           {cardData.map((data, index) => (
             <Card
@@ -76,22 +76,20 @@ export default function Home() {
           ))}
         </section>
         <section className="grid w-full grid-cols-1 gap-4 gap-x-8 transition-all sm:grid-cols-2 xl:grid-cols-2">
-          <section className="grid grid-cols-1 gap-2 transition-all lg:grid-cols-2">
-            <CardContent className="flex justify-between gap-4">
-              <section>
-                <p>Team</p>
-                <p className="text-sm text-gray-400">5 Team Memebers</p>
-              </section>
-              {userSalesData.slice(0, 2).map((data, index) => (
-                <SalesCard
-                  key={index}
-                  email={data.email}
-                  name={data.name}
-                  salesAmount={data.salesAmount}
-                />
-              ))}
-            </CardContent>
-          </section>
+          <CardContent className="flex justify-between gap-4">
+            <section>
+              <p>Team</p>
+              <p className="text-sm text-gray-400">5 Team Memebers</p>
+            </section>
+            {userSalesData.slice(0, 2).map((data, index) => (
+              <SalesCard
+                key={index}
+                email={data.email}
+                name={data.name}
+                salesAmount={data.salesAmount}
+              />
+            ))}
+          </CardContent>
           {cardData.slice(0, 1).map((data, index) => (
             <Card
               key={index}

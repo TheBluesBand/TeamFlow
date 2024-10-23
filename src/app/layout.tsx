@@ -26,9 +26,12 @@ export default function RootLayout({
         )}
       >
         {/* Sidebar */}
-        <Sidebar />
+        <div className="fixed top-1/2 left-0 transform -translate-y-1/2 p-2">
+          <Sidebar />
+        </div>
+
         {/* main page */}
-        <div className="p-8 w-full">{children}</div>
+        <div className="p-8 pl-20 w-full">{children}</div>
       </body>
     </html>
   );
