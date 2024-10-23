@@ -3,6 +3,16 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import Sidebar from "@/components/ui/sidebar";
+import {
+  Menubar,
+  MenubarContent,
+  MenubarItem,
+  MenubarMenu,
+  MenubarSeparator,
+  MenubarShortcut,
+  MenubarTrigger,
+} from "@/components/ui/menubar";
+import { ArrowUpRight } from "lucide-react";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -30,8 +40,24 @@ export default function RootLayout({
           <Sidebar />
         </div>
 
+        {/* Menubar */}
+        <div className="absolute top-0 left-1/2 transform -translate-x-1/2 p-4 mb-8">
+          <Menubar>
+            <MenubarMenu>
+              <MenubarTrigger>
+                <ArrowUpRight />
+              </MenubarTrigger>
+              <MenubarTrigger>Home</MenubarTrigger>
+              <MenubarTrigger>About Us</MenubarTrigger>
+              <MenubarTrigger>Support</MenubarTrigger>
+            </MenubarMenu>
+          </Menubar>
+        </div>
+
         {/* main page */}
-        <div className="p-8 pl-20 w-full">{children}</div>
+        <div className="p-8 pl-20 w-full" style={{ paddingTop: "72px" }}>
+          {children}
+        </div>
       </body>
     </html>
   );
