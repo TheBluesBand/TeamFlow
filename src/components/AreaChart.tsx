@@ -11,78 +11,62 @@ import {
 } from "recharts";
 import { XAxis, YAxis } from "recharts";
 
-const data = [
-  {
-    name: "Jan",
-    codeAdditions: Math.floor(Math.random() * 5000),
-    codeDeletions: Math.floor(Math.random() * 5000),
-  },
-  {
-    name: "Feb",
-    codeAdditions: Math.floor(Math.random() * 5000),
-    codeDeletions: Math.floor(Math.random() * 5000),
-  },
-  {
-    name: "Mar",
-    codeAdditions: Math.floor(Math.random() * 5000),
-    codeDeletions: Math.floor(Math.random() * 5000),
-  },
-  {
-    name: "Apr",
-    codeAdditions: Math.floor(Math.random() * 5000),
-    codeDeletions: Math.floor(Math.random() * 5000),
-  },
-  {
-    name: "May",
-    codeAdditions: Math.floor(Math.random() * 5000),
-    codeDeletions: Math.floor(Math.random() * 5000),
-  },
-  {
-    name: "Jun",
-    codeAdditions: Math.floor(Math.random() * 5000),
-    codeDeletions: Math.floor(Math.random() * 5000),
-  },
-  {
-    name: "Jul",
-    codeAdditions: Math.floor(Math.random() * 5000),
-    codeDeletions: Math.floor(Math.random() * 5000),
-  },
-  {
-    name: "Aug",
-    codeAdditions: Math.floor(Math.random() * 5000),
-    codeDeletions: Math.floor(Math.random() * 5000),
-  },
-  {
-    name: "Sep",
-    codeAdditions: Math.floor(Math.random() * 5000),
-    codeDeletions: Math.floor(Math.random() * 5000),
-  },
-  {
-    name: "Oct",
-    codeAdditions: Math.floor(Math.random() * 5000),
-    codeDeletions: Math.floor(Math.random() * 5000),
-  },
-  {
-    name: "Nov",
-    codeAdditions: Math.floor(Math.random() * 5000),
-    codeDeletions: Math.floor(Math.random() * 5000),
-  },
-  {
-    name: "Dec",
-    codeAdditions: Math.floor(Math.random() * 5000),
-    codeDeletions: Math.floor(Math.random() * 5000),
-  },
-];
+const generateGitHubData = () => {
+  const months = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+  ];
+
+  const data = [];
+  let baseAdditions = 100;
+  let baseDeletions = 50;
+
+  for (let i = 0; i < 12; i++) {
+    const additions = baseAdditions + Math.floor(Math.random() * 500);
+    const deletions = baseDeletions + Math.floor(Math.random() * 300);
+
+    data.push({
+      name: months[i % months.length],
+      codeAdditions: additions,
+      codeDeletions: deletions,
+    });
+
+    // Simulate trends: more additions at the beginning, more deletions later
+    baseAdditions = Math.max(
+      500,
+      baseAdditions - Math.floor(Math.random() * 100)
+    );
+    baseDeletions = Math.min(
+      1000,
+      baseDeletions + Math.floor(Math.random() * 100)
+    );
+  }
+
+  return data;
+};
+
+const data = generateGitHubData();
 
 export default function AreaChartComponent() {
   const { theme } = useTheme();
 
   const tooltipStyles = {
-    backgroundColor: theme === "dark" ? "#333" : "#fff",
-    color: theme === "dark" ? "#fff" : "#000",
-    border: theme === "dark" ? "1px solid #444" : "1px solid #ddd",
+    backgroundColor: theme === "dark" ? "#fff" : "#333",
+    color: theme === "dark" ? "#000" : "#fff",
+    border: theme === "dark" ? "1px solid #ddd" : "1px solid #444",
+    borderRadius: "8px",
   };
-  
+
   return (
     <ResponsiveContainer width={"100%"} height={350}>
       <AreaChart data={data}>
@@ -104,17 +88,17 @@ export default function AreaChartComponent() {
         <Area
           type="monotone"
           dataKey="codeAdditions"
-          stroke="#00FF00"
-          fill="#00FF00"
-          name="Code Added"
+          stroke="#43BA6E"
+          fill="#43BA6E"
+          name="Code Additions"
         />{" "}
         {/* Green */}
         <Area
-          name="Code Removed"
+          name="Code Subtractions"
           type="monotone"
           dataKey="codeDeletions"
-          stroke="#FF0000"
-          fill="#FF0000"
+          stroke="#EA4335"
+          fill="#EA4335"
         />{" "}
         {/* Red */}
       </AreaChart>

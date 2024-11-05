@@ -28,12 +28,19 @@ const generateRandomData = () => {
     "Dec",
   ];
 
-  return months.map((month) => ({
-    name: month,
-    codeLines: Math.floor(Math.random() * 10000),
-    blankLines: Math.floor(Math.random() * 10000),
-    commentLines: Math.floor(Math.random() * 10000),
-  }));
+  const data = [];
+  let baseValue = 100;
+
+  for (let i = 0; i < 12; i++) {
+    data.push({
+      name: months[i % months.length],
+      codeLines: baseValue + i * 100 + Math.floor(Math.random() * 50),
+      blankLines: baseValue + i * 80 + Math.floor(Math.random() * 40),
+      commentLines: baseValue + i * 60 + Math.floor(Math.random() * 30),
+    });
+  }
+
+  return data;
 };
 
 const data = generateRandomData();
@@ -42,9 +49,10 @@ export default function LineGraph({}: Props) {
   const { theme } = useTheme();
 
   const tooltipStyles = {
-    backgroundColor: theme === "dark" ? "#333" : "#fff",
-    color: theme === "dark" ? "#fff" : "#000",
-    border: theme === "dark" ? "1px solid #444" : "1px solid #ddd",
+    backgroundColor: theme === "dark" ? "#fff" : "#333",
+    color: theme === "dark" ? "#000" : "#fff",
+    border: theme === "dark" ? "1px solid #ddd" : "1px solid #444",
+    borderRadius: "8px",
   };
 
   return (
@@ -70,7 +78,7 @@ export default function LineGraph({}: Props) {
           name="Code"
           type="monotone"
           dataKey="codeLines"
-          stroke="#00FF00"
+          stroke="#66bb6a"
           dot={false}
         />{" "}
         {/* Green */}
@@ -78,7 +86,7 @@ export default function LineGraph({}: Props) {
           name="Blank"
           type="monotone"
           dataKey="blankLines"
-          stroke="#FF0000"
+          stroke="#EA4335"
           dot={false}
         />{" "}
         {/* Red */}
@@ -86,7 +94,7 @@ export default function LineGraph({}: Props) {
           name="Comments"
           type="monotone"
           dataKey="commentLines"
-          stroke="#0000FF"
+          stroke="#2563EB"
           dot={false}
         />{" "}
         {/* Blue */}

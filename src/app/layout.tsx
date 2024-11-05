@@ -11,6 +11,7 @@ import { ThemeToggle } from "@/components/navbar/ThemeToggle";
 import { useEffect, useState } from "react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import DateSelector from "@/components/navbar/DateSelector";
+import Footer from "@/components/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -42,17 +43,13 @@ export default function RootLayout({
 
   return (
     <html lang="en">
-      <body
+      <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+        {/* <body
         className={cn("min-h-screen w-full flex", inter.className, {
           "debug-screens": process.env.NODE_ENV === "development",
         })}
-      >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
+      > */}
+        <body className={cn("min-h-screen flex flex-col", inter.className)}>
           {/* Sidebar */}
           <div className="fixed top-1/2 left-0 transform -translate-y-1/2 p-2">
             <Sidebar />
@@ -77,19 +74,25 @@ export default function RootLayout({
             <div className="absolute right-8 flex items-center space-x-4">
               <DateSelector />
               <ThemeToggle />
-              <Avatar>
+              <Avatar className="w-10 h-10 rounded-full">
                 <AvatarImage src="https://github.com/shadcn.png" />
                 <AvatarFallback>CN</AvatarFallback>
               </Avatar>
             </div>
           </div>
 
-          {/* main page */}
-          <div className="p-8 pl-20 w-full" style={{ paddingTop: "72px" }}>
+          {/* Main page */}
+          <div
+            className="flex-grow p-8 pl-20 w-full"
+            style={{ paddingTop: "72px" }}
+          >
             {children}
           </div>
-        </ThemeProvider>
-      </body>
+
+          {/* Footer */}
+          <Footer />
+        </body>
+      </ThemeProvider>
     </html>
   );
 }

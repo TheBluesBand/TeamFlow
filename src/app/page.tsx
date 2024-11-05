@@ -17,18 +17,23 @@ const cardData: CardProps[] = [
     amount: "20",
     description: "+2.3",
     icon: ArrowUpRight,
+    backgroundColor: "#0047B3",
   },
   {
     label: "Bugs found",
     amount: "15",
     description: "-15% down from last month",
     icon: ArrowUpRight,
+    backgroundColor: "#FFFFFF",
+    textColor: "text-black",
   },
   {
     label: "Time to first review",
     amount: "4.9 hours",
     description: "+201 from last month",
     icon: ArrowUpRight,
+    backgroundColor: "#92FF97",
+    textColor: "text-black",
   },
 ];
 
@@ -73,6 +78,8 @@ export default function Home() {
               description={data.description}
               icon={data.icon}
               label={data.label}
+              backgroundColor={data.backgroundColor}
+              textColor={data.textColor}
             />
           ))}
         </section>
