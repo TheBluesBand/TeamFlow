@@ -14,11 +14,21 @@ type Props = {};
 
 const generateRandomData = () => {
   const months = [
-    "Jan", "Feb", "Mar", "Apr", "May", "Jun",
-    "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
   ];
 
-  return months.map(month => ({
+  return months.map((month) => ({
     name: month,
     codeLines: Math.floor(Math.random() * 10000),
     blankLines: Math.floor(Math.random() * 10000),
@@ -26,9 +36,9 @@ const generateRandomData = () => {
   }));
 };
 
-export default function LineGraph({}: Props) {
-  const data = generateRandomData();
+const data = generateRandomData();
 
+export default function LineGraph({}: Props) {
   const { theme } = useTheme();
 
   const tooltipStyles = {
