@@ -1,4 +1,5 @@
 "use client";
+import { useTheme } from "next-themes";
 import React from "react";
 import {
   Bar,
@@ -74,6 +75,14 @@ const data = [
 ];
 
 export default function AreaChartComponent() {
+  const { theme } = useTheme();
+
+  const tooltipStyles = {
+    backgroundColor: theme === "dark" ? "#333" : "#fff",
+    color: theme === "dark" ? "#fff" : "#000",
+    border: theme === "dark" ? "1px solid #444" : "1px solid #ddd",
+  };
+  
   return (
     <ResponsiveContainer width={"100%"} height={350}>
       <AreaChart data={data}>
@@ -90,7 +99,7 @@ export default function AreaChartComponent() {
           fontSize={12}
           tickFormatter={(value) => `${value}`}
         />
-        <Tooltip />
+        <Tooltip contentStyle={tooltipStyles} />
         <Legend />
         <Area
           type="monotone"
