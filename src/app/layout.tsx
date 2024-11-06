@@ -12,6 +12,8 @@ import { useEffect, useState } from "react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import DateSelector from "@/components/navbar/DateSelector";
 import Footer from "@/components/Footer";
+import { Nav } from "@/components/ui/nav";
+import Navbar from "@/components/navbar/navbar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -55,31 +57,7 @@ export default function RootLayout({
             <Sidebar />
           </div>
 
-          {/* Header */}
-          <div className="fixed top-0 left-0 w-full flex justify-between items-center p-4">
-            {/* Menubar */}
-            <div className="flex justify-center w-full">
-              <Menubar>
-                <MenubarMenu>
-                  <MenubarTrigger>
-                    <ArrowUpRight />
-                  </MenubarTrigger>
-                  <MenubarTrigger>Home</MenubarTrigger>
-                  <MenubarTrigger>About Us</MenubarTrigger>
-                  <MenubarTrigger>Support</MenubarTrigger>
-                </MenubarMenu>
-              </Menubar>
-            </div>
-            {/* ThemeToggle */}
-            <div className="absolute right-8 flex items-center space-x-4">
-              <DateSelector />
-              <ThemeToggle />
-              <Avatar className="w-10 h-10 rounded-full">
-                <AvatarImage src="https://github.com/shadcn.png" />
-                <AvatarFallback>CN</AvatarFallback>
-              </Avatar>
-            </div>
-          </div>
+          <Navbar />
 
           {/* Main page */}
           <div

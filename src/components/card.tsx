@@ -22,9 +22,9 @@ export default function Card(props: CardProps) {
         {/* icon with grey circle */}
         <div
           className="flex items-center justify-center h-8 w-8 rounded-full flex-shrink-0"
-          style={{ backgroundColor: "rgba(128, 128, 128, 0.77)" }}
+          style={{ backgroundColor: "rgba(128, 128, 128, 1)" }}
         >
-          <props.icon className="h-4 w-4 text-gray-400" />
+          <props.icon className="h-4 w-4 text-grey-400" />
         </div>
       </section>
       <section className="flex flex-col gap-1">
