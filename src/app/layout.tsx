@@ -12,8 +12,7 @@ import { useEffect, useState } from "react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import DateSelector from "@/components/navbar/DateSelector";
 import Footer from "@/components/Footer";
-import { Nav } from "@/components/ui/nav";
-import Navbar from "@/components/navbar/navbar";
+import Navbar from "@/components/navbar/Navbar";
 
 const inter = Inter({ subsets: ["latin"] });
 

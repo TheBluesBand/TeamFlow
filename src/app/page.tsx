@@ -15,7 +15,7 @@ const cardData: CardProps[] = [
   {
     label: "Pull requests open",
     amount: "20",
-    description: "+2.3",
+    description: "+2.3 more than last month",
     icon: ArrowUpRight,
     backgroundcolor: "#0047B3",
   },

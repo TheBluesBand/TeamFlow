@@ -1,11 +1,22 @@
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, User } from "lucide-react";
+import UserAvatar from "./UserAvatar";
 import React from "react";
-import { Menubar, MenubarMenu, MenubarTrigger } from "../ui/menubar";
+import {
+  Menubar,
+  MenubarMenu,
+  MenubarSeparator,
+  MenubarTrigger,
+} from "../ui/menubar";
 import DateSelector from "./DateSelector";
 import { ThemeToggle } from "./ThemeToggle";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 
 const Navbar = (props: any) => {
+  const user = {
+    name: "John Doe",
+    image: "https://github.com/shadcn.png",
+  };
+
   return (
     <>
       <div className="fixed top-0 left-0 w-full flex justify-between items-center p-4">
@@ -16,8 +27,17 @@ const Navbar = (props: any) => {
               <MenubarTrigger>
                 <ArrowUpRight className="h-5 w-5" />
               </MenubarTrigger>
+            </MenubarMenu>
+            <MenubarSeparator />
+            <MenubarMenu>
               <MenubarTrigger>Home</MenubarTrigger>
+            </MenubarMenu>
+            <MenubarSeparator />
+            <MenubarMenu>
               <MenubarTrigger>About Us</MenubarTrigger>
+            </MenubarMenu>
+            <MenubarSeparator />
+            <MenubarMenu>
               <MenubarTrigger>Support</MenubarTrigger>
             </MenubarMenu>
           </Menubar>
@@ -26,10 +46,7 @@ const Navbar = (props: any) => {
           <div className="absolute right-8 flex items-center space-x-4">
             <DateSelector />
             <ThemeToggle />
-            <Avatar className="w-10 h-10 rounded-full">
-              <AvatarImage src="https://github.com/shadcn.png" />
-              <AvatarFallback>PP</AvatarFallback>
-            </Avatar>
+            <UserAvatar user={user} />
           </div>
         </div>
       </div>
