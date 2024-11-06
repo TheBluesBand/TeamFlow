@@ -19,7 +19,7 @@ export const Primary: Story = {
     icon: DollarSign,
     amount: "$12,345",
     description: "Last Month",
-    backgroundColor: "bg-blue-500",
+    backgroundcolor: "bg-blue-500",
     textColor: "text-white",
   },
 };
@@ -30,7 +30,7 @@ export const Secondary: Story = {
     icon: Plus,
     amount: "1,234",
     description: "This Week",
-    backgroundColor: "bg-green-500",
+    backgroundcolor: "bg-green-500",
     textColor: "#880b0b",
   },
 };
@@ -41,7 +41,7 @@ export const Negative: Story = {
     icon: Minus,
     amount: "-23",
     description: "Today",
-    backgroundColor: "bg-red-500",
+    backgroundcolor: "bg-red-500",
     textColor: "text-white",
   },
 };

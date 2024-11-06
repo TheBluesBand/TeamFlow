@@ -7,7 +7,7 @@ export type CardProps = {
   icon: LucideIcon;
   amount: string;
   description: string;
-  backgroundColor?: string;
+  backgroundcolor?: string;
   textColor?: string;
 };
 
@@ -15,7 +15,7 @@ export default function Card(props: CardProps) {
   const textColor = props.textColor || "text-white";
 
   return (
-    <CardContent backgroundColor={props.backgroundColor}>
+    <CardContent backgroundcolor={props.backgroundcolor}>
       <section className="flex justify-between gap-2">
         {/* label */}
         <p className={cn("text-sm", textColor)}>{props.label}</p>
@@ -38,10 +38,10 @@ export default function Card(props: CardProps) {
 }
 
 export function CardContent(
-  props: React.HTMLAttributes<HTMLDivElement> & { backgroundColor?: string }
+  props: React.HTMLAttributes<HTMLDivElement> & { backgroundcolor?: string }
 ) {
-  const backgroundColorWithOpacity = props.backgroundColor
-    ? `${props.backgroundColor}DD` // Add opacity to the background color
+  const backgroundColorWithOpacity = props.backgroundcolor
+    ? `${props.backgroundcolor}DD` // Add opacity to the background color
     : "rgba(52, 52, 52, 0.87)"; // Default background color with opacity
 
   return (
