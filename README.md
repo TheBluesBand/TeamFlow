@@ -1,6 +1,6 @@
-# Personal Project - Full-Stack Web Application Practice
+# TeamFlow - Full-Stack Web Application Project
 
-This repository houses a personal project designed to enhance my full-stack development skills. The goal is to build a complete web application from scratch, covering UI, backend, database, and deployment, while incorporating JWT-based authentication. This project serves as practical experience and exploration of various technologies.
+This repository houses a personal project (named TeamFlow) designed to enhance my full-stack development skills. The goal is to build a complete web application from scratch, covering UI, backend, database, and deployment, while incorporating JWT-based authentication. This project serves as practical experience and exploration of various technologies.
 
 ## Project Overview
 
